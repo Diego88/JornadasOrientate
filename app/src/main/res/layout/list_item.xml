@@ -6,44 +6,43 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/space_l">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_medium"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/space_l"
+    <ImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="@dimen/space_2xl"
+        android:layout_height="@dimen/space_2xl"
+        android:layout_marginVertical="@dimen/space_l"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Title" />
+        tools:src="@android:drawable/ic_menu_gallery" />
 
     <TextView
-        android:id="@+id/descriptionTextView"
+        android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size_small"
-        android:layout_marginVertical="@dimen/space_l"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView"
-        tools:text="Description" />
-
-    <TextView
-        android:id="@+id/idTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginTop="@dimen/space_l"
+        android:gravity="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Id" />
+        tools:text="Name" />
 
     <TextView
-        android:id="@+id/userIdTextView"
+        android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/space_l"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTextView"
-        tools:text="User Id" />
+        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+        tools:text="Email" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xxs"
+        android:background="@color/light_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

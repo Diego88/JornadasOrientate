@@ -11,9 +11,11 @@ import com.example.jornadasorientate.R
 import com.example.jornadasorientate.data.data.model.User
 import com.example.jornadasorientate.data.util.loadImage
 
-class UsersAdapter(private val context: Context): RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
-
-    var items: List<User> = mutableListOf()
+class UsersAdapter(
+    private val context: Context,
+    private val items: List<User>,
+    private val listener: (User) -> Unit
+): RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -35,7 +37,9 @@ class UsersAdapter(private val context: Context): RecyclerView.Adapter<UsersAdap
         fun bind(item: User) {
             name.text = context.getString(R.string.complete_user_name, item.firstName, item.lastName)
             email.text = item.email
-            avatar.loadImage(item.avatar)
+            avatar.loadImage(context, item.avatar)
+
+            itemView.setOnClickListener { listener(item) }
         }
     }
 }

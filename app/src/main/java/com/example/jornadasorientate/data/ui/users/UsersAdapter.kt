@@ -1,4 +1,4 @@
-package com.example.jornadasorientate.data.ui.adapter
+package com.example.jornadasorientate.data.ui.users
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.request.RequestOptions
 import com.example.jornadasorientate.R
 import com.example.jornadasorientate.data.data.model.User
 import com.example.jornadasorientate.data.util.loadImage
@@ -37,7 +38,7 @@ class UsersAdapter(
         fun bind(item: User) {
             name.text = context.getString(R.string.complete_user_name, item.firstName, item.lastName)
             email.text = item.email
-            avatar.loadImage(context, item.avatar)
+            avatar.loadImage(context, item.avatar, RequestOptions.circleCropTransform())
 
             itemView.setOnClickListener { listener(item) }
         }

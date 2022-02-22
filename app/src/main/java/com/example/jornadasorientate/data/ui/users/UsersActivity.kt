@@ -1,16 +1,17 @@
-package com.example.jornadasorientate.data.ui.activity
+package com.example.jornadasorientate.data.ui.users
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jornadasorientate.R
 import com.example.jornadasorientate.data.data.model.User
 import com.example.jornadasorientate.data.presenter.UsersPresenter
-import com.example.jornadasorientate.data.ui.adapter.UsersAdapter
+import com.example.jornadasorientate.data.ui.detail.DetailActivity
+import com.example.jornadasorientate.data.ui.detail.DetailActivity.Companion.USER_EXTRA
 
 class UsersActivity : AppCompatActivity(), UsersPresenter.PhotosView {
 
@@ -48,7 +49,8 @@ class UsersActivity : AppCompatActivity(), UsersPresenter.PhotosView {
     }
 
     private fun showUserDetail(user: User) {
-        Toast.makeText(this, getString(R.string.complete_user_name, user.firstName, user.lastName), Toast.LENGTH_SHORT)
-            .show()
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(USER_EXTRA, user)
+        startActivity(intent)
     }
 }

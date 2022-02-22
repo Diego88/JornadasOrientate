@@ -1,7 +1,10 @@
 package com.example.jornadasorientate.data.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class User(
     @SerializedName("id")
     val id: Int,
@@ -13,4 +16,4 @@ data class User(
     val email: String,
     @SerializedName("avatar")
     val avatar: String
-)
+): Parcelable

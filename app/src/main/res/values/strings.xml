@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Jornadas Oriéntate</string>
     <string name="complete_user_name">%1$s %2$s</string>
+    <string name="user_name_label">Name: %1$s</string>
+    <string name="email_label">Email: %1$s</string>
+    <string name="description_label">Description:</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed tristique neque,
+        sit amet ornare ante. Praesent viverra leo a fermentum imperdiet. Aliquam ullamcorper fermentum mauris,
+        quis posuere est porta ac. Maecenas vitae sapien vehicula, maximus velit sit amet, vulputate quam.
+        Mauris porttitor venenatis lacus, vitae dictum ante ultrices non. Donec convallis, felis quis elementum
+        convallis, elit nulla venenatis leo, vel condimentum erat nisl quis sapien. Praesent sit amet purus enim.
+        Cras egestas enim vel porta vulputate. Nunc gravida quis justo ut sagittis. Donec finibus, est non sodales
+        molestie, eros nisi hendrerit dolor, eget tincidunt ex nibh eu nisi. Aliquam.</string>
 </resources>

@@ -2,7 +2,7 @@ package com.example.jornadasorientate.data.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class DataUser(
+data class User(
     @SerializedName("id")
     val id: Int,
     @SerializedName("first_name")

@@ -1,5 +1,6 @@
 package com.example.jornadasorientate.data.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,10 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jornadasorientate.R
-import com.example.jornadasorientate.data.model.User
+import com.example.jornadasorientate.data.data.model.User
 import com.example.jornadasorientate.data.util.loadImage
 
-class UsersAdapter: RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
+class UsersAdapter(private val context: Context): RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     var items: List<User> = mutableListOf()
 
@@ -21,16 +22,20 @@ class UsersAdapter: RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name.text = items[position].name
-        holder.email.text = items[position].email
-        holder.avatar.loadImage(items[position].avatar)
+        holder.bind(items[position])
     }
 
     override fun getItemCount(): Int = items.size
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.nameTextView)
-        val email: TextView = itemView.findViewById(R.id.emailTextView)
-        val avatar: ImageView = itemView.findViewById(R.id.avatarImageView)
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        private val name: TextView = itemView.findViewById(R.id.nameTextView)
+        private val email: TextView = itemView.findViewById(R.id.emailTextView)
+        private val avatar: ImageView = itemView.findViewById(R.id.avatarImageView)
+
+        fun bind(item: User) {
+            name.text = context.getString(R.string.complete_user_name, item.firstName, item.lastName)
+            email.text = item.email
+            avatar.loadImage(item.avatar)
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.jornadasorientate.R
 import com.example.jornadasorientate.data.data.model.User
 import com.example.jornadasorientate.data.presenter.UsersPresenter
 import com.example.jornadasorientate.data.ui.detail.DetailActivity
@@ -36,10 +37,10 @@ class UsersActivity : AppCompatActivity(), UsersPresenter.PhotosView {
         }
     }
 
-    override fun showError(message: String) {
+    override fun showError() {
         binding.recyclerView.visibility = View.GONE
         binding.errorTextView.visibility = View.VISIBLE
-        binding.errorTextView.text = message
+        binding.errorTextView.text = getString(R.string.generic_error)
     }
 
     private fun showUserDetail(user: User) {

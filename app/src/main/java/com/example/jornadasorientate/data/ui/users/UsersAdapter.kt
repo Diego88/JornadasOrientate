@@ -2,15 +2,13 @@ package com.example.jornadasorientate.data.ui.users
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.example.jornadasorientate.R
 import com.example.jornadasorientate.data.data.model.User
 import com.example.jornadasorientate.data.util.loadImage
+import com.example.jornadasorientate.databinding.ListItemBinding
 
 class UsersAdapter(
     private val context: Context,
@@ -19,9 +17,8 @@ class UsersAdapter(
 ): RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
-        return ViewHolder(view)
+        val itemBinding = ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(itemBinding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -30,17 +27,13 @@ class UsersAdapter(
 
     override fun getItemCount(): Int = items.size
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val name: TextView = itemView.findViewById(R.id.nameTextView)
-        private val email: TextView = itemView.findViewById(R.id.emailTextView)
-        private val avatar: ImageView = itemView.findViewById(R.id.avatarImageView)
-
+    inner class ViewHolder(private val itemBinding: ListItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item: User) {
-            name.text = context.getString(R.string.complete_user_name, item.firstName, item.lastName)
-            email.text = item.email
-            avatar.loadImage(context, item.avatar, RequestOptions.circleCropTransform())
+            itemBinding.nameTextView.text = context.getString(R.string.complete_user_name, item.firstName, item.lastName)
+            itemBinding.emailTextView.text = item.email
+            itemBinding.avatarImageView.loadImage(context, item.avatar, RequestOptions.circleCropTransform())
 
-            itemView.setOnClickListener { listener(item) }
+            itemBinding.root.setOnClickListener { listener(item) }
         }
     }
 }
